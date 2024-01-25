@@ -69,7 +69,8 @@ public class Objectives : MonoBehaviour
         {
             if (StopShow == true)
             {
-                print("BONJOUR");
+                GameObject.Find("Congratulation").GetComponent<RawImage>().enabled = true;
+                
             }
             
         }

@@ -9,17 +9,19 @@ public class Health : MonoBehaviour
     private Transform MyAnim;
     private Objectives Quest;
     private bool EnVie;
+    private AudioSource punchSound;
+    public AudioClip[] AudioArray;
+    public GameObject SpawnSound;
     
     void Start()
     {               //FOR RAGDOLL *troll*
         EnVie = true;
         Rigidbody[] RigidBodyKino = GetComponentsInChildren<Rigidbody>();
+        SpawnSound = (GameObject)Resources.Load("DoSound", typeof(GameObject));
 
         foreach (Rigidbody RB in RigidBodyKino)
         {
         RB.isKinematic = true;
-        //RB.angularDrag = ;
-        //RB.mass = RB.mass * 10;
         }
         this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
@@ -27,7 +29,6 @@ public class Health : MonoBehaviour
         {
         MyAnim = GetComponentInChildren<AnimObject>().gameObject.transform;
         Quest = GameObject.Find("GameManager").GetComponent<Objectives>(); 
-        
         }
 
         RagDoll();
@@ -84,6 +85,13 @@ public class Health : MonoBehaviour
 
     public void RagDoll()
     {
+        GameObject newSound = Instantiate(SpawnSound);
+        punchSound = newSound.GetComponent<AudioSource>();
+        
+        punchSound.clip = AudioArray[Random.Range(0, AudioArray.Length)];
+        punchSound.Play();
+
+
         Rigidbody[] RigidBodyKino = GetComponentsInChildren<Rigidbody>();
 
         foreach (Rigidbody RB in RigidBodyKino)

@@ -10,13 +10,17 @@ public class PunchUniversal : MonoBehaviour
     private Transform whereImLooking;
     private AudioSource punchSound;
     public AudioClip[] AudioArray;
+    public GameObject SpawnSound;
     private PoingMove poingMove;
     private JambeMove jambeMove;
+    
 
     void Start()
     {
         whereImLooking = this.gameObject.transform.parent.transform;
-        punchSound = GetComponentInChildren<AudioSource>();
+        //SpawnSound = GetComponentInChildren<AudioSource>();
+
+        SpawnSound = (GameObject)Resources.Load("DoSound", typeof(GameObject));
 
         if (PlayerPunch == true)
         {
@@ -72,6 +76,11 @@ public class PunchUniversal : MonoBehaviour
             {
                 if(ObjectInColl.GetComponent<Rigidbody>() != null)
                 {
+                    
+                    GameObject newSound = Instantiate(SpawnSound);
+                    punchSound = newSound.GetComponent<AudioSource>();
+                    
+                    punchSound.clip = AudioArray[Random.Range(0, AudioArray.Length)];
                     punchSound.Play();
 
 
@@ -95,5 +104,3 @@ public class PunchUniversal : MonoBehaviour
     
 
 }
-
-
