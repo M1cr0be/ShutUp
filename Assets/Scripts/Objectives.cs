@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Objectives : MonoBehaviour
 {
@@ -8,11 +12,16 @@ public class Objectives : MonoBehaviour
     private GameObject UIObjectives;
     // Start is called before the first frame update
     private int HowMuchDoIGetDown;
+    private bool StopShow;
     public bool CanIGetLower;
+    public TextMeshProUGUI scoreUI;
     void Start()
     {
-        ObjectifsAccomplis = 0;
+        ObjectifsAccomplis = 12;
         UIObjectives = GameObject.Find("Objectives"); 
+        scoreUI.text = "Neighbors remaining: " + ObjectifsAccomplis;
+        StopShow = false;
+        ShowObjectives();
     }
 
     // Update is called once per frame
@@ -30,20 +39,43 @@ public class Objectives : MonoBehaviour
             
             
         }
-
-        //if (ObjectifsAccomplis => 12)
-        //{
-            //LastObjectif();
-        //}
     }
 
     private void ShowObjectives()
     {
-            //915
+            CanIGetLower = true;
     }
 
     private void LastObjectif()
     {
-        
+        CanIGetLower = true;
+        StopShow = true;
     }
+
+    public void ObjectiveComplete()
+    {
+        ObjectifsAccomplis -=1;
+        scoreUI.text = "Neighbors remaining: " + ObjectifsAccomplis;
+        if (ObjectifsAccomplis <= 0 && StopShow == false)
+        {
+            LastObjectif();
+        }
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<FirstPersonMovement>())
+        {
+            if (StopShow == true)
+            {
+                print("BONJOUR");
+            }
+            
+        }
+    }
+
+
+
+
 }

@@ -67,6 +67,7 @@ public class PunchUniversal : MonoBehaviour
 
     private void Slapping()
     {
+        ObjectsInCollision.RemoveAll(s => s == null);
         foreach (GameObject ObjectInColl in ObjectsInCollision)
             {
                 if(ObjectInColl.GetComponent<Rigidbody>() != null)
@@ -81,7 +82,7 @@ public class PunchUniversal : MonoBehaviour
                     if(ObjectInColl.GetComponent<Health>() != null)
                     {
                         Health Health = ObjectInColl.GetComponent<Health>();
-                        Health.Damaged(1);
+                        Health.Damaged(15);
                     }
 
                     if(ObjectInColl.GetComponent<TriggerOnSlap>() != null)
