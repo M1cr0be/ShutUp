@@ -3,7 +3,22 @@ guid: 1edd09ab8e0422444a013813fd677897
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Boss_diffuse
+    second: {fileID: 2800000, guid: 37dc9886f676c744093814e8258203c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Boss_normal
+    second: {fileID: 2800000, guid: 16edeb1c34b653a45b5ab3c5475b52b7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Boss_specular
+    second: {fileID: 2800000, guid: 46e838f5b096a7f4fb8513e3b8280e16, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

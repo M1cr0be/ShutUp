@@ -8,12 +8,13 @@ public class TriggerOnSlap : MonoBehaviour
     public Animator WakeEnnemy;
     public int QuestObject;
     private AudioSource SoundToStop;
+    private bool BreakingOnce;
 
 
     void Start()
     {
         SoundToStop = this.gameObject.GetComponent<AudioSource>();
-
+        BreakingOnce = false;
         if (WakeEnnemy != null)
         {
             Invoke("UglyStart", 0.5f);
@@ -29,13 +30,18 @@ public class TriggerOnSlap : MonoBehaviour
 
     public void SlapObject()
     {
-        if (WakeEnnemy != null)
+        if (BreakingOnce == false)
         {
-            Invoke("SlowReaction", 0.5f);
-        }
-        if (QuestObject != 0)
-        {
-            SoundToStop.enabled = false;
+            BreakingOnce = true;
+            if (WakeEnnemy != null)
+            {
+                Invoke("SlowReaction", 0.5f);
+            }
+            if (QuestObject != 0)
+            {
+                SoundToStop.enabled = false;
+                GameObject.Find("GameManager").GetComponent<Objectives>().ObjectiveComplete();
+            }
         }
 
     }

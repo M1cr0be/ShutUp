@@ -59,6 +59,7 @@ public class Health : MonoBehaviour
             {
                 Quest.ObjectiveComplete();
                 Invoke("Kill", 8);
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             else
             {

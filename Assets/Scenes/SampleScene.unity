@@ -16866,8 +16866,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -318}
-  m_SizeDelta: {x: 3840, y: 2860}
+  m_AnchoredPosition: {x: 0, y: 4}
+  m_SizeDelta: {x: 3840, y: 2206.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895301374
 MonoBehaviour:
@@ -16889,7 +16889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 63ca1727ca3239743b786324c3d7642a, type: 3}
+  m_Texture: {fileID: 2800000, guid: b202e7df90c29e54e90794ed7c4706c2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -31761,7 +31761,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -34453,10 +34453,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 629413106729740633, guid: 6429f1229ea07a74f907d8746ac693ba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 806014060118288670, guid: 6429f1229ea07a74f907d8746ac693ba,
         type: 3}
       propertyPath: speed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 838323532930913051, guid: 6429f1229ea07a74f907d8746ac693ba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1979878548235812989, guid: 6429f1229ea07a74f907d8746ac693ba,
         type: 3}
@@ -34482,6 +34492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.762
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896863473901400228, guid: 6429f1229ea07a74f907d8746ac693ba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6039741235607221735, guid: 6429f1229ea07a74f907d8746ac693ba,
         type: 3}
@@ -34597,6 +34612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544804560679103789, guid: 6429f1229ea07a74f907d8746ac693ba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1068312573985574006, guid: 6429f1229ea07a74f907d8746ac693ba, type: 3}
@@ -43839,7 +43859,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 12.000003, y: 16.6, z: 3.6000009}
+  m_Size: {x: 9.9, y: 16.08, z: 2}
   m_Center: {x: 0, y: 8.3, z: 0.09999999}
 --- !u!1 &8164078558062469598
 GameObject:

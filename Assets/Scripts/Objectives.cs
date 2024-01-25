@@ -19,7 +19,7 @@ public class Objectives : MonoBehaviour
     {
         ObjectifsAccomplis = 12;
         UIObjectives = GameObject.Find("Objectives"); 
-        scoreUI.text = "Neighbors remaining: " + ObjectifsAccomplis;
+        scoreUI.text = "Remaining noice nuisance: " + ObjectifsAccomplis;
         StopShow = false;
         ShowObjectives();
     }
@@ -55,7 +55,7 @@ public class Objectives : MonoBehaviour
     public void ObjectiveComplete()
     {
         ObjectifsAccomplis -=1;
-        scoreUI.text = "Neighbors remaining: " + ObjectifsAccomplis;
+        scoreUI.text = "Remaining noice nuisance: " + ObjectifsAccomplis;
         if (ObjectifsAccomplis <= 0 && StopShow == false)
         {
             LastObjectif();
