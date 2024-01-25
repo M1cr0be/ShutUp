@@ -67,7 +67,14 @@ public class PunchUniversal : MonoBehaviour
         }
     }
 
-
+    public void Taunting()
+    {
+        GameObject newSound = Instantiate(SpawnSound);
+        punchSound = newSound.GetComponent<AudioSource>();
+        
+        punchSound.clip = AudioArray[Random.Range(0, AudioArray.Length)];
+        punchSound.Play();
+    }
 
     private void Slapping()
     {
@@ -76,14 +83,6 @@ public class PunchUniversal : MonoBehaviour
             {
                 if(ObjectInColl.GetComponent<Rigidbody>() != null)
                 {
-                    
-                    GameObject newSound = Instantiate(SpawnSound);
-                    punchSound = newSound.GetComponent<AudioSource>();
-                    
-                    punchSound.clip = AudioArray[Random.Range(0, AudioArray.Length)];
-                    punchSound.Play();
-
-
                     Rigidbody RB = ObjectInColl.GetComponent<Rigidbody>();
                     Vector3 direction = RB.transform.position - transform.position;
                     RB.AddForceAtPosition(direction.normalized * 25, whereImLooking.position, ForceMode.VelocityChange );
@@ -91,7 +90,7 @@ public class PunchUniversal : MonoBehaviour
                     if(ObjectInColl.GetComponent<Health>() != null)
                     {
                         Health Health = ObjectInColl.GetComponent<Health>();
-                        Health.Damaged(15);
+                        Health.Damaged(1);
                     }
 
                     if(ObjectInColl.GetComponent<TriggerOnSlap>() != null)

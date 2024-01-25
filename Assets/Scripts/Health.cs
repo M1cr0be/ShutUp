@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     private bool EnVie;
     private AudioSource punchSound;
     public AudioClip[] AudioArray;
+    public AudioClip[] DeathArray;
+    
     public GameObject SpawnSound;
     
     void Start()
@@ -57,9 +59,11 @@ public class Health : MonoBehaviour
             EnVie = false;
             if (IsEnnemy == true)
             {
-                Quest.ObjectiveComplete();
-                Invoke("Kill", 8);
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
+                Quest.ObjectiveComplete();
+                Invoke("Taunt", 0.8f);
+                Invoke("Kill", 8);
+                
             }
             else
             {
@@ -73,6 +77,15 @@ public class Health : MonoBehaviour
     public void Kill()
     {
         Destroy(this.gameObject);
+    }
+
+    public void Taunt()
+    {
+        GameObject newSound = Instantiate(SpawnSound);
+        punchSound = newSound.GetComponent<AudioSource>();
+        
+        punchSound.clip = DeathArray[Random.Range(0, DeathArray.Length)];
+        punchSound.Play();
     }
 
     public void ReBrain()

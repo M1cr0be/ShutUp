@@ -10,10 +10,15 @@ public class TriggerOnSlap : MonoBehaviour
     private AudioSource SoundToStop;
     private bool BreakingOnce;
 
+    private AudioSource punchSound;
+    public AudioClip[] AudioArray;
+    public GameObject SpawnSound;
+
 
     void Start()
     {
         SoundToStop = this.gameObject.GetComponent<AudioSource>();
+        SpawnSound = (GameObject)Resources.Load("DoSound", typeof(GameObject));
         BreakingOnce = false;
         if (WakeEnnemy != null)
         {
@@ -33,9 +38,16 @@ public class TriggerOnSlap : MonoBehaviour
         if (BreakingOnce == false)
         {
             BreakingOnce = true;
+            Invoke("EndMePlease", 1f);
             if (WakeEnnemy != null)
             {
                 Invoke("SlowReaction", 0.5f);
+                GameObject newSound = Instantiate(SpawnSound);
+                punchSound = newSound.GetComponent<AudioSource>();
+                
+                punchSound.clip = AudioArray[Random.Range(0, AudioArray.Length)];
+                punchSound.Play();
+
             }
             if (QuestObject != 0)
             {
@@ -49,5 +61,17 @@ public class TriggerOnSlap : MonoBehaviour
     {
         WakeEnnemy.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         WakeEnnemy.enabled = true;
+    }
+
+    private void EndMePlease()
+    {
+        if(this.gameObject.GetComponent<MeshCollider>() != null)
+        {
+            this.gameObject.GetComponent<MeshCollider>().enabled = false;
+        }
+        if(this.gameObject.GetComponent<BoxCollider>() != null)
+        {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 }

@@ -17,6 +17,7 @@ public class Tape : StateMachineBehaviour
         punched = false;
         Punch = animator.GetComponentInChildren<PunchUniversal>();
         Anim = animator.GetComponentInChildren<AnimObject>().GetComponent<Animator>();
+        Punch.Taunting();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -40,8 +41,6 @@ public class Tape : StateMachineBehaviour
             Anim.SetBool("IsChasing", true);
             Anim.SetBool("IsPunching", false);
         }
-
-
             
         }
     }
