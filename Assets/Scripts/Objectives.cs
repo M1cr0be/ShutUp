@@ -21,7 +21,7 @@ public class Objectives : MonoBehaviour
         UIObjectives = GameObject.Find("Objectives"); 
         scoreUI.text = "Remaining noice nuisance: " + ObjectifsAccomplis;
         StopShow = false;
-        ShowObjectives();
+        
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class Objectives : MonoBehaviour
         }
     }
 
-    private void ShowObjectives()
+    public void ShowObjectives()
     {
             CanIGetLower = true;
     }
