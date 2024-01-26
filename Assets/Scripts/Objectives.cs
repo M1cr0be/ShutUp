@@ -17,7 +17,7 @@ public class Objectives : MonoBehaviour
     public TextMeshProUGUI scoreUI;
     void Start()
     {
-        ObjectifsAccomplis = 12;
+        ObjectifsAccomplis = 22;
         UIObjectives = GameObject.Find("Objectives"); 
         scoreUI.text = "Remaining noice nuisance: " + ObjectifsAccomplis;
         StopShow = false;
