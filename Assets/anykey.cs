@@ -7,12 +7,14 @@ public class anykey : MonoBehaviour
 {
     public bool started;
     private GameObject FPC;
+    private AudioSource Audio;
     // Start is called before the first frame update
     void Start()
     {
         started = false;
         Cursor.lockState = CursorLockMode.Confined;
         FPC = GameObject.Find("First Person Controller");
+        Audio = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,8 +31,18 @@ public class anykey : MonoBehaviour
             GameObject.Find("Rage").GetComponent<RawImage>().enabled = false;
             GameObject.Find("Retry").GetComponent<RawImage>().enabled = false;
             GameObject.Find("Press").GetComponent<RawImage>().enabled = false;
+            GameObject.Find("Subtitle").GetComponent<RawImage>().enabled = true;
             
             this.gameObject.GetComponent<Objectives>().ShowObjectives();
+            Audio.Play();
+
+            Invoke("sub", 4f);
         }
     }
+
+    private void sub()
+    {
+        GameObject.Find("Subtitle").GetComponent<RawImage>().enabled = false;
+    }
 }
+

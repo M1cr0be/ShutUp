@@ -58,12 +58,14 @@ public class PunchUniversal : MonoBehaviour
         {
             poingMove.checkbox = true;
             Slapping();
+            Taunting();
         }
 
         else if (Input.GetMouseButtonDown(1) && PlayerPunch == true)
         {
             jambeMove.checkBox = true;
             Slapping();
+            Taunting();
         }
     }
 

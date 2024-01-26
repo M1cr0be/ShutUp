@@ -27,11 +27,11 @@ public class Objectives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CanIGetLower == true && HowMuchDoIGetDown < 285)
+        if (CanIGetLower == true && HowMuchDoIGetDown < 50)
         {
-            HowMuchDoIGetDown += 4;
+            HowMuchDoIGetDown += 1;
             UIObjectives.transform.position = UIObjectives.transform.position + new Vector3 (0,-4,0);
-            if (HowMuchDoIGetDown >= 285)
+            if (HowMuchDoIGetDown >= 50)
             {
                 CanIGetLower = false;
                 HowMuchDoIGetDown = 0;
